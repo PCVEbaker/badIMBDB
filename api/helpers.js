@@ -10,4 +10,4 @@ const getPopularMovies = function(cb) {
     })
 };
 
-module.exports.getPopularMovies = getPopularMoviess
+module.exports.getPopularMovies = getPopularMovies
