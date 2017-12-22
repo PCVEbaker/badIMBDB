@@ -1,5 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import axios from 'axios';
+
+import MovieList from './components/MovieList.jsx'
 
 class App extends React.Component{
   constructor(props) {
@@ -9,9 +12,25 @@ class App extends React.Component{
     }
   }
 
+  getPopularMovies() {
+    axios.get('/movies')
+      .then(response => {
+        this.setState({
+          movies: response.data
+        })
+        console.log(this.state.movies);
+      })
+      .catch(err => {
+        console.log(err);
+      })
+  }
+
   render() {
     return(
-      <div>Hello</div>
+      <div>
+        <button onClick={this.getPopularMovies.bind(this)}>Get Popular Movies</button>
+        <MovieList movies={this.state.movies} />
+      </div>
     )
   }
 }
