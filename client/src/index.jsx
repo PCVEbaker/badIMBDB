@@ -8,7 +8,8 @@ class App extends React.Component{
   constructor(props) {
     super(props);
     this.state = {
-      movies: []
+      movies: [],
+      savedMovies: []
     }
   }
 
@@ -25,11 +26,22 @@ class App extends React.Component{
       })
   }
 
+  saveMovie(movie) {
+    axios.post('/database', movie)
+      .then(response => {
+        console.log(response);
+      })
+      .catch(err => {
+        console.log(err);
+      })
+  }
+
   render() {
     return(
       <div>
         <button onClick={this.getPopularMovies.bind(this)}>Get Popular Movies</button>
-        <MovieList movies={this.state.movies} />
+        <MovieList movies={this.state.movies} saveMovie={this.saveMovie}/>
+        <SavedMovieList movies={this.state.savedMovies}/>
       </div>
     )
   }

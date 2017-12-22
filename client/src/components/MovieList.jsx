@@ -10,7 +10,7 @@ class MovieList extends React.Component {
     return (
       <div>
         {this.props.movies.map((movie, index) => {
-          return <Movie movie={movie} key={index}/>
+          return <Movie movie={movie} key={index} saveMovie={this.props.saveMovie}/>
         })}
       </div>
     )
