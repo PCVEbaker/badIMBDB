@@ -13,6 +13,10 @@ const app = express();
 app.use(express.static(path.join(__dirname, '../client/dist')));
 app.use(bodyParser.json());
 
+app.get('/login', (req, res) => {
+  res.render(path.join(__dirname, '../client/dist/security/login'));
+})
+
 app.get('/movies', (req, res) => {
   getMovies((data) => {
     res.json(data);
