@@ -19,7 +19,7 @@ class MovieList extends React.Component {
     return (
       <div style={styles}>
         {this.props.movies.map((movie, index) => {
-          return <Movie movie={movie} key={index} saveMovie={this.props.saveMovie} getInfo={this.props.getInfo}/>
+          return <Movie movie={movie} key={index} username={this.props.username} saveMovie={this.props.saveMovie} getInfo={this.props.getInfo}/>
         })}
       </div>
     )

@@ -13,7 +13,7 @@ class FeaturedMovie extends React.Component {
           <p>{this.props.featuredMovie.tagline}</p>
           <img src={"http://image.tmdb.org/t/p/w150" + this.props.featuredMovie.poster_path} alt="" style={{width: "40%"}}/>
           <p>{this.props.featuredMovie.overview}</p>
-          <button>See Similar Movies</button>  
+          <button onClick={() => this.props.getSimilarMovies({"id": this.props.featuredMovie.id})}>See Similar Movies</button>  
         </div>
       ) 
     } else {
