@@ -8,9 +8,9 @@ class MovieList extends React.Component {
 
   render() {
     return (
-      <div>
+      <div style={{border: "2px solid black", maxHeight: "100vh", overflowY: "scroll", width: "20%", float: "left", marginLeft: "2.5%"}}>
         {this.props.movies.map((movie, index) => {
-          return <Movie movie={movie} key={index} saveMovie={this.props.saveMovie}/>
+          return <Movie movie={movie} key={index} saveMovie={this.props.saveMovie} getInfo={this.props.getInfo}/>
         })}
       </div>
     )

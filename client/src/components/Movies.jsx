@@ -6,7 +6,6 @@ class Movie extends React.Component {
   }
 
   saveMovie() {
-    console.log('inside function')
     const movie = {
       id: this.props.movie.id,
       title: this.props.movie.title,
@@ -19,11 +18,12 @@ class Movie extends React.Component {
 
   render() {
     return (
-      <div>
+      <div style={{textAlign: "center", border: "1px solid black", margin: "2px", height: "175px"}}>
         <p>Title: {this.props.movie.title}</p>
         <p>Vote Average: {this.props.movie.vote_average}</p>
         <p>Vote Count: {this.props.movie.vote_count}</p>
-        <button onClick={() => {this.saveMovie()}}>Save Movie</button>
+        <button onClick={() => {this.saveMovie()}} className="btn btn-primary" >Save Movie</button>
+        <button onClick={() => {this.props.getInfo({id: this.props.movie.id})}} className="btn btn-secondary">More Info</button>
       </div>
     )
   }

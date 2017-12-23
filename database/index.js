@@ -46,6 +46,18 @@ const fetch = function(cb) {
   })
 };
 
+const remove = function(id, cb) {
+  Movie.remove({"id": id}, err => {
+    if (err) {
+      console.log(err)
+      cb()
+    } else {
+      cb()
+    }
+  })
+}
+
 
 module.exports.save = save;
 module.exports.fetch = fetch;
+module.exports.remove = remove;
